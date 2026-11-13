@@ -1,0 +1,370 @@
+object frmMain: TfrmMain
+  Left = 240
+  Height = 650
+  Top = 120
+  Width = 920
+  Caption = 'Sistema de Gestion Escolar v1.2 (Legacy Delphi)'
+  ClientHeight = 630
+  ClientWidth = 920
+  Menu = MainMenu1
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.2.6.0'
+  object pnlTop: TPanel
+    Left = 0
+    Height = 56
+    Top = 0
+    Width = 920
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 15724527
+    ClientHeight = 56
+    ClientWidth = 920
+    ParentColor = False
+    TabOrder = 0
+    object lblTitulo: TLabel
+      Left = 16
+      Height = 25
+      Top = 15
+      Width = 370
+      Caption = 'Sistema de Gestion Escolar - Modulo Alumnos'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -19
+      Font.Name = 'Arial'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object pnlActions: TPanel
+      Left = 512
+      Height = 56
+      Top = 0
+      Width = 408
+      Align = alRight
+      BevelOuter = bvNone
+      ClientHeight = 56
+      ClientWidth = 408
+      TabOrder = 0
+      object btnNavAsistencia: TButton
+        Left = 40
+        Height = 35
+        Top = 10
+        Width = 175
+        Caption = 'Pantalla 2: Asistencias'
+        Font.Style = [fsBold]
+        OnClick = btnNavAsistenciaClick
+        ParentFont = False
+        TabOrder = 0
+      end
+      object btnNavNotas: TButton
+        Left = 224
+        Height = 35
+        Top = 10
+        Width = 175
+        Caption = 'Pantalla 3: Notas'
+        Font.Style = [fsBold]
+        OnClick = btnNavNotasClick
+        ParentFont = False
+        TabOrder = 1
+      end
+    end
+  end
+  object pnlSearch: TPanel
+    Left = 0
+    Height = 44
+    Top = 56
+    Width = 920
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 44
+    ClientWidth = 920
+    TabOrder = 1
+    object lblBuscar: TLabel
+      Left = 16
+      Height = 16
+      Top = 14
+      Width = 139
+      Caption = 'Buscar por Apellido/DNI:'
+      ParentColor = False
+    end
+    object txtBuscar: TEdit
+      Left = 168
+      Height = 24
+      Top = 10
+      Width = 260
+      TabOrder = 0
+    end
+    object btnBuscar: TButton
+      Left = 436
+      Height = 26
+      Top = 9
+      Width = 80
+      Caption = 'Buscar'
+      OnClick = btnBuscarClick
+      TabOrder = 1
+    end
+    object btnLimpiarFiltro: TButton
+      Left = 524
+      Height = 26
+      Top = 9
+      Width = 110
+      Caption = 'Mostrar Todos'
+      OnClick = btnLimpiarFiltroClick
+      TabOrder = 2
+    end
+  end
+  object dbgAlumnos: TDBGrid
+    Left = 0
+    Height = 260
+    Top = 100
+    Width = 920
+    Align = alClient
+    Color = clWindow
+    Columns = <>
+    Options = [dgTitles, dgIndicator, dgColumnResize, dgColumnMove, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    TabOrder = 2
+    OnCellClick = dbgAlumnosCellClick
+  end
+  object pnlDetalle: TPanel
+    Left = 0
+    Height = 270
+    Top = 360
+    Width = 920
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 270
+    ClientWidth = 920
+    TabOrder = 3
+    object gbDetalle: TGroupBox
+      Left = 8
+      Height = 254
+      Top = 8
+      Width = 904
+      Align = alClient
+      Caption = ' Ficha del Alumno (Datos y Edicion) '
+      ClientHeight = 236
+      ClientWidth = 900
+      TabOrder = 0
+      object lblIdInterno: TLabel
+        Left = 16
+        Height = 16
+        Top = 15
+        Width = 17
+        Caption = 'ID:'
+        ParentColor = False
+      end
+      object txtId: TEdit
+        Left = 80
+        Height = 24
+        Top = 12
+        Width = 60
+        Enabled = False
+        TabOrder = 0
+      end
+      object lblLegajo: TLabel
+        Left = 160
+        Height = 16
+        Top = 15
+        Width = 46
+        Caption = 'Legajo:'
+        ParentColor = False
+      end
+      object edtLegajo: TEdit
+        Left = 216
+        Height = 24
+        Top = 12
+        Width = 140
+        TabOrder = 1
+      end
+      object lblCurso: TLabel
+        Left = 380
+        Height = 16
+        Top = 15
+        Width = 39
+        Caption = 'Curso:'
+        ParentColor = False
+      end
+      object cmbCurso: TComboBox
+        Left = 430
+        Height = 24
+        Top = 12
+        Width = 180
+        ItemHeight = 16
+        Style = csDropDownList
+        TabOrder = 2
+      end
+      object lblEstado: TLabel
+        Left = 630
+        Height = 16
+        Top = 15
+        Width = 46
+        Caption = 'Estado:'
+        ParentColor = False
+      end
+      object cmbEstado: TComboBox
+        Left = 690
+        Height = 24
+        Top = 12
+        Width = 180
+        ItemHeight = 16
+        Items.Strings = (
+          'REGULAR'
+          'LIBRE'
+          'EGRESADO'
+          'SUSPENDIDO'
+        )
+        Style = csDropDownList
+        TabOrder = 3
+      end
+      object lblApellido: TLabel
+        Left = 16
+        Height = 16
+        Top = 55
+        Width = 53
+        Caption = 'Apellido:'
+        ParentColor = False
+      end
+      object edtApellido: TEdit
+        Left = 80
+        Height = 24
+        Top = 52
+        Width = 276
+        TabOrder = 4
+      end
+      object lblNombre: TLabel
+        Left = 380
+        Height = 16
+        Top = 55
+        Width = 51
+        Caption = 'Nombre:'
+        ParentColor = False
+      end
+      object edtNombre: TEdit
+        Left = 440
+        Height = 24
+        Top = 52
+        Width = 280
+        TabOrder = 5
+      end
+      object lblDni: TLabel
+        Left = 16
+        Height = 16
+        Top = 95
+        Width = 26
+        Caption = 'DNI:'
+        ParentColor = False
+      end
+      object edtDni: TEdit
+        Left = 80
+        Height = 24
+        Top = 92
+        Width = 160
+        TabOrder = 6
+      end
+      object lblEmail: TLabel
+        Left = 260
+        Height = 16
+        Top = 95
+        Width = 36
+        Caption = 'Email:'
+        ParentColor = False
+      end
+      object edtEmail: TEdit
+        Left = 310
+        Height = 24
+        Top = 92
+        Width = 250
+        TabOrder = 7
+      end
+      object lblTelefono: TLabel
+        Left = 580
+        Height = 16
+        Top = 95
+        Width = 56
+        Caption = 'Telefono:'
+        ParentColor = False
+      end
+      object edtTelefono: TEdit
+        Left = 645
+        Height = 24
+        Top = 92
+        Width = 225
+        TabOrder = 8
+      end
+      object btnNuevo: TButton
+        Left = 180
+        Height = 35
+        Top = 150
+        Width = 110
+        Caption = '&Nuevo'
+        OnClick = btnNuevoClick
+        TabOrder = 9
+      end
+      object btnGuardar: TButton
+        Left = 310
+        Height = 35
+        Top = 150
+        Width = 120
+        Caption = '&Guardar'
+        Font.Style = [fsBold]
+        OnClick = btnGuardarClick
+        ParentFont = False
+        TabOrder = 10
+      end
+      object btnEliminar: TButton
+        Left = 450
+        Height = 35
+        Top = 150
+        Width = 110
+        Caption = '&Eliminar'
+        OnClick = btnEliminarClick
+        TabOrder = 11
+      end
+      object btnCancelar: TButton
+        Left = 580
+        Height = 35
+        Top = 150
+        Width = 110
+        Caption = '&Cancelar'
+        OnClick = btnCancelarClick
+        TabOrder = 12
+      end
+    end
+  end
+  object MainMenu1: TMainMenu
+    Left = 40
+    Top = 130
+    object mnuArchivo: TMenuItem
+      Caption = '&Archivo'
+      object mnuAlumnos: TMenuItem
+        Caption = '&Alumnos'
+      end
+      object mnuSeparador1: TMenuItem
+        Caption = '-'
+      end
+      object mnuSalir: TMenuItem
+        Caption = '&Salir'
+        OnClick = mnuSalirClick
+      end
+    end
+    object mnuProcesos: TMenuItem
+      Caption = '&Procesos'
+      object mnuAsistencia: TMenuItem
+        Caption = 'Toma de &Asistencia'
+        OnClick = btnNavAsistenciaClick
+      end
+      object mnuNotas: TMenuItem
+        Caption = 'Carga de &Calificaciones'
+        OnClick = btnNavNotasClick
+      end
+    end
+    object mnuAyuda: TMenuItem
+      Caption = 'A&yuda'
+      object mnuAcercaDe: TMenuItem
+        Caption = '&Acerca de...'
+        OnClick = mnuAcercaDeClick
+      end
+    end
+  end
+end

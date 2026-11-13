@@ -1,0 +1,7 @@
+output/
+.DS_Store
+.kiro
+
+# Specs de crewmates generados por install.sh — NO se versionan.
+# Traen el PROJECT_ROOT absoluto de cada máquina; cada quien los regenera.
+.kiro/agents/*.json

@@ -1,0 +1,224 @@
+object frmNotas: TfrmNotas
+  Left = 260
+  Height = 620
+  Top = 130
+  Width = 900
+  Caption = 'Carga y Consulta de Calificaciones (Legacy Delphi)'
+  ClientHeight = 620
+  ClientWidth = 900
+  OnShow = FormShow
+  Position = poScreenCenter
+  LCLVersion = '2.2.6.0'
+  object pnlTop: TPanel
+    Left = 0
+    Height = 50
+    Top = 0
+    Width = 900
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 14807240
+    ClientHeight = 50
+    ClientWidth = 900
+    ParentColor = False
+    TabOrder = 0
+    object lblTitulo: TLabel
+      Left = 16
+      Height = 22
+      Top = 14
+      Width = 380
+      Caption = 'Modulo de Calificaciones Escolares - Pantalla 3'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -16
+      Font.Name = 'Arial'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+  end
+  object pnlFiltros: TPanel
+    Left = 0
+    Height = 60
+    Top = 50
+    Width = 900
+    Align = alTop
+    BevelOuter = bvNone
+    ClientHeight = 60
+    ClientWidth = 900
+    TabOrder = 1
+    object lblCurso: TLabel
+      Left = 16
+      Height = 16
+      Top = 20
+      Width = 39
+      Caption = 'Curso:'
+      ParentColor = False
+    end
+    object cmbCurso: TComboBox
+      Left = 60
+      Height = 24
+      Top = 16
+      Width = 140
+      ItemHeight = 16
+      Style = csDropDownList
+      TabOrder = 0
+    end
+    object lblMateria: TLabel
+      Left = 215
+      Height = 16
+      Top = 20
+      Width = 50
+      Caption = 'Materia:'
+      ParentColor = False
+    end
+    object cmbMateria: TComboBox
+      Left = 270
+      Height = 24
+      Top = 16
+      Width = 190
+      ItemHeight = 16
+      Style = csDropDownList
+      TabOrder = 1
+    end
+    object lblPeriodo: TLabel
+      Left = 475
+      Height = 16
+      Top = 20
+      Width = 49
+      Caption = 'Periodo:'
+      ParentColor = False
+    end
+    object cmbPeriodo: TComboBox
+      Left = 530
+      Height = 24
+      Top = 16
+      Width = 170
+      ItemHeight = 16
+      Items.Strings = (
+        '1er Trimestre'
+        '2do Trimestre'
+        '3er Trimestre'
+        'Final Diciembre'
+        'Final Febrero'
+      )
+      Style = csDropDownList
+      TabOrder = 2
+    end
+    object btnCargarNotas: TButton
+      Left = 715
+      Height = 28
+      Top = 14
+      Width = 165
+      Caption = 'Cargar Calificaciones'
+      Font.Style = [fsBold]
+      OnClick = btnCargarNotasClick
+      ParentFont = False
+      TabOrder = 3
+    end
+  end
+  object sgNotas: TStringGrid
+    Left = 0
+    Height = 390
+    Top = 110
+    Width = 900
+    Align = alClient
+    ColCount = 6
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+    RowCount = 1
+    TabOrder = 2
+    OnEditingDone = sgNotasEditingDone
+  end
+  object pnlEstadisticas: TPanel
+    Left = 0
+    Height = 50
+    Top = 500
+    Width = 900
+    Align = alBottom
+    BevelOuter = bvNone
+    Color = 15790320
+    ClientHeight = 50
+    ClientWidth = 900
+    ParentColor = False
+    TabOrder = 3
+    object btnCalcular: TButton
+      Left = 16
+      Height = 28
+      Top = 10
+      Width = 150
+      Caption = 'Recalcular Totales'
+      OnClick = btnCalcularClick
+      TabOrder = 0
+    end
+    object lblPromedio: TLabel
+      Left = 190
+      Height = 16
+      Top = 16
+      Width = 175
+      Caption = 'Promedio General: S/D'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblAprobados: TLabel
+      Left = 450
+      Height = 16
+      Top = 16
+      Width = 95
+      Caption = 'Aprobados: 0'
+      Font.Color = clGreen
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object lblDesaprobados: TLabel
+      Left = 600
+      Height = 16
+      Top = 16
+      Width = 115
+      Caption = 'Desaprobados: 0'
+      Font.Color = clMaroon
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object pnlBottom: TPanel
+    Left = 0
+    Height = 70
+    Top = 550
+    Width = 900
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 70
+    ClientWidth = 900
+    TabOrder = 4
+    object btnGuardarNotas: TButton
+      Left = 460
+      Height = 36
+      Top = 16
+      Width = 160
+      Caption = '&Guardar Calificaciones'
+      Font.Style = [fsBold]
+      OnClick = btnGuardarNotasClick
+      ParentFont = False
+      TabOrder = 0
+    end
+    object btnExportarReporte: TButton
+      Left = 635
+      Height = 36
+      Top = 16
+      Width = 140
+      Caption = 'Exportar Boletin TXT'
+      OnClick = btnExportarReporteClick
+      TabOrder = 1
+    end
+    object btnCerrar: TButton
+      Left = 790
+      Height = 36
+      Top = 16
+      Width = 95
+      Caption = 'Cerrar'
+      OnClick = btnCerrarClick
+      TabOrder = 2
+    end
+  end
+end

@@ -1,0 +1,37 @@
+# Configuración del proyecto AIDLC-Light
+# Este archivo define los pilares de la migración.
+# El pipeline lee estos valores y los inyecta en los crewmates.
+
+# Nombre del proyecto. Es la fuente única de verdad para el workspace de Kiro Crew:
+# install.sh lo lee como default (workspace = aidlc-light-<nombre_proyecto>).
+# Se puede sobrescribir pasando el nombre como argumento: ./install.sh otro-nombre
+nombre_proyecto: "delfi-migra"
+
+# Carpeta de TU proyecto (modelo A: la herramienta AIDLC-Light vive aparte del
+# proyecto que estás construyendo). El pipeline lee el input desde <project_dir>/input/
+# y escribe los resultados en <project_dir>/output/. Así la herramienta queda limpia
+# y actualizable (git pull) sin mezclarse con tu código generado.
+# Ruta ABSOLUTA. Si se deja vacío, el pipeline usa las carpetas input_legacy/ y output/
+# del propio repo de la herramienta (modo autocontenido, solo para probar).
+project_dir: "/Users/mauro/Documents/codigo/test-aidlc-migration"   # ej: "/home/juana/dev/reservas-turnos"
+
+stack_origen: "Código legacy delfi"
+
+stack_destino: "Backend en FastAPI con ORM para base de datos Postgresql y Frontend en React vite con tailwindcss. backend y db corriendo en docker"
+
+reglas_seguridad: "Fuerza validación estricta de inputs, prevención de Inyección SQL y XSS. Manejo de errores sin exponer stacktraces."
+
+# Modelos sugeridos por agente (opcional — si se omite, usa 'auto')
+# Estos valores se usan como model override en spawn_run
+modelos:
+  arquitecto: "auto"        # Modelo fuerte para diseño
+  builder_back: "auto"      # Modelo de trabajo
+  builder_front: "auto"     # Modelo de trabajo
+  inspector: "auto"         # Modelo rápido/barato para el juez
+  auditor: "auto"           # Modelo fuerte para análisis
+  tech_writer: "auto"       # Modelo de trabajo
+
+# Configuración del pipeline
+pipeline:
+  max_reintentos: 1        # Máximo de intentos por módulo antes de marcar REVIEW_
+  paralelismo: true         # Procesar módulos independientes en paralelo
